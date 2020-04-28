@@ -4,10 +4,12 @@
       <div class="card-content center-align">
         <h2 class="teal-text">Welcome</h2>
         <form @submit.prevent="enterChat">
-          <label for="name">Enter your name:</label>
+          <label for="name" class="pink-text">Enter your name:</label>
           <input type="text" name="name" v-model="name">
           <p v-if="feedback" class="red-text">{{ feedback }}</p>
-          <button class="btn teal ">Enter chat</button>
+           <button class="btn waves-effect waves-light pink" type="submit" name="action">Enter the chat
+            <i class="material-icons right">send</i>
+          </button>
         </form>
       </div>
     </div>
@@ -52,5 +54,6 @@ export default {
 .welcome h2{
   font-size: 1.8em;
   margin:10px auto;
+      color: #ff00a5 !important;
 }
 </style>

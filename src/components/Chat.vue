@@ -3,7 +3,7 @@
         <h2 class="center teal-text">Chat Room</h2>
         <div class="card">
             <div class="card-content">
-                <ul class="message">
+                <ul class="message" v-chat-scroll="{smooth: true, notSmoothOnInit: true}">
                     <li v-for="message in messages" :key="message.id">
                         <span class="teal-text">{{ message.name }}</span>
                         <span class="grey-text text-darken-3">{{message.message}}</span>
@@ -20,6 +20,7 @@
 <script>
 import NewMessage from '@/components/NewMessage'
 import db from '@/firebase/init'
+import moment from 'moment'
 export default {
     name:'Chat',
     props:['name'],
@@ -42,7 +43,7 @@ export default {
                         id:doc.id,
                         name:doc.data().name,
                         message:doc.data().content,
-                        time:doc.data().time
+                        time:moment(doc.data().time).format('lll')
                     })
                 }
             })
@@ -63,16 +64,32 @@ export default {
     font-size: 1em;
     display: block;
 }
+.chat .message{
+    max-height:300px;
+    overflow: auto;
+}
+.card .card-content{
+    padding-bottom: 0;
+}
+.message::-webkit-scrollbar{
+    width:3px;
+}
+.message::-webkit-scrollbar-track{
+    background:#ddd;
+}
+.message::-webkit-scrollbar-thumb{
+    background:#aaa;
+}
 @media( max-width:500px){
 .chat h2{
     font-size: 2em;
-    margin-bottom: 40px;
+   margin: 5px;
 }
 .chat span{
     font-size: 1em;
 }
 .chat .time{
-    font-size: 0.8em;
+    font-size: 0.6em;
     display: block;
 }
 }
