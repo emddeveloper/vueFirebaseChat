@@ -2,7 +2,7 @@
   <div id="app" >
     <Header :title="headertitle" :type="htype"></Header>
     <router-view/>
-    <Header :title="footertitle" :type="ftype" class="footer"></Header>
+    <!-- <Header :title="footertitle" :type="ftype" class="footer"></Header> -->
   </div>
 </template>
 

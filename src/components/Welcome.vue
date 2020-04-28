@@ -54,6 +54,9 @@ export default {
 .welcome h2{
   font-size: 1.8em;
   margin:10px auto;
-      color: #ff00a5 !important;
+         color: #ee6e73 !important;
+}
+.btn{
+    background-color: #ee6e73 !important;
 }
 </style>

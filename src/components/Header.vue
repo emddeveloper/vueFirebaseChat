@@ -2,7 +2,7 @@
     <div class="navbar-fixed">
         <nav>
             <div class="nav-wrapper">
-            <a href="#" class="brand-logo" v-if="type==='Header'"><router-link to="/">{{title}}</router-link></a>
+            <a href="#" class="brand-logo" v-if="type==='Header'"><router-link to="/" class="title">{{title}}</router-link></a>
             <p v-else>{{title}}</p>
             <ul id="nav-mobile" class="right">
                 <li><a v-if="type==='Header'">{{ time }}</a></li>
@@ -39,7 +39,12 @@ export default {
 p{
     margin:0;
 }
-.brand-logo{
-        color: #ff00a5 !important;
+@media( max-width:500px){
+    nav a.time{
+        font-size: 14px;
+    }
+    a.title{
+        font-size: 22px;
+    }
 }
 </style>

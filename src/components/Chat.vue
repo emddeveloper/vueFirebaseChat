@@ -1,6 +1,6 @@
 <template>
    <div class="chat container">
-        <h2 class="center teal-text">Chat Room</h2>
+        <!-- <h2 class="center teal-text">Chat Room</h2> -->
         <div class="card">
             <div class="card-content">
                 <ul class="message" v-chat-scroll="{smooth: true, notSmoothOnInit: true}">
@@ -65,11 +65,12 @@ export default {
     display: block;
 }
 .chat .message{
-    max-height:300px;
+    max-height:500px;
     overflow: auto;
 }
 .card .card-content{
-    padding-bottom: 0;
+    padding-bottom: 5px;
+    padding-top: 5px;
 }
 .message::-webkit-scrollbar{
     width:3px;
@@ -79,6 +80,9 @@ export default {
 }
 .message::-webkit-scrollbar-thumb{
     background:#aaa;
+}
+.btn{
+    background-color: #ee6e73 !important;
 }
 @media( max-width:500px){
 .chat h2{
@@ -91,6 +95,13 @@ export default {
 .chat .time{
     font-size: 0.6em;
     display: block;
+}
+.card-action{
+        position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1;
 }
 }
 </style>
